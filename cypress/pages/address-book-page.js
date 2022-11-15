@@ -22,6 +22,7 @@ export default class AddressBookPage {
     btnSaveAdress = 'button[title="Save Address"]'
     titleAddressBook = '[data-ui-id="page-title-wrapper"]'
     addressBlock = 'address'
+    linkMyAccount = '.nav.items li:first-child'
 
     addNewAddress() {
         cy.get(this.inputPhoneNumber).should('be.visible').type(this.randomPhoneNumber)
@@ -47,5 +48,9 @@ export default class AddressBookPage {
         cy.get(this.addressBlock).should('contain.text', this.randomCity)
         cy.get(this.addressBlock).should('contain.text', this.country)
         cy.get(this.addressBlock).should('contain.text', this.randomZipCode)
+    }
+
+    selectMyAccountPage() {
+        cy.get(this.linkMyAccount).should('be.visible').click()
     }
 }

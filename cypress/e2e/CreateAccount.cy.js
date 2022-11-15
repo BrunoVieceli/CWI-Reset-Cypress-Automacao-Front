@@ -20,7 +20,7 @@ describe('Magento Software Testing', () => {
     createAccountPage.createAccount()
     myAccountPage.selectEditAddress()
     addressBookPage.addNewAddress()
-    //final assertions
-    addressBookPage.adressBookPageAssertions()
+    addressBookPage.adressBookPageAssertions() //final assertions
+    addressBookPage.selectMyAccountPage()
   })
 })
