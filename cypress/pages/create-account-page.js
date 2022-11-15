@@ -16,11 +16,11 @@ export default class CreateAccountPage {
     btnCreateAnAccount = 'button[title="Create an Account"]'
 
     createAccount () {
-       cy.get(this.inputFirstName).type(this.randomFirstName)
-       cy.get(this.inputLastName).type(this.randomLastName)
-       cy.get(this.inputEmail).type(this.randomEmail)
-       cy.get(this.inputPassword).type(this.randomPassword)
-       cy.get(this.inputConfirmPassword).type(this.randomPassword)
-       cy.get(this.btnCreateAnAccount).click()
+       cy.get(this.inputFirstName).should('be.visible').type(this.randomFirstName)
+       cy.get(this.inputLastName).should('be.visible').type(this.randomLastName)
+       cy.get(this.inputEmail).should('be.visible').type(this.randomEmail)
+       cy.get(this.inputPassword).should('be.visible').type(this.randomPassword)
+       cy.get(this.inputConfirmPassword).should('be.visible').type(this.randomPassword)
+       cy.get(this.btnCreateAnAccount).should('be.visible').click()
     }
 }

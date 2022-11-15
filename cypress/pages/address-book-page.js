@@ -24,11 +24,11 @@ export default class AddressBookPage {
     addressBlock = 'address'
 
     addNewAddress() {
-        cy.get(this.inputPhoneNumber).type(this.randomPhoneNumber)
-        cy.get(this.inputStreet).type(this.randomStreet)
-        cy.get(this.inputCity).type(this.randomCity)
-        cy.get(this.inputCountry).select(this.country)
-        cy.get(this.inputStateProvince + '> option')                                               // code for selecting a random state/province
+        cy.get(this.inputPhoneNumber).should('be.visible').type(this.randomPhoneNumber)
+        cy.get(this.inputStreet).should('be.visible').type(this.randomStreet)
+        cy.get(this.inputCity).should('be.visible').type(this.randomCity)
+        cy.get(this.inputCountry).should('be.visible').select(this.country)
+        cy.get(this.inputStateProvince + '> option').should('be.visible')                                               // code for selecting a random state/province
             .then(listing => {
                 const randomNumber = getRandomInt(0, listing.length - 1);                          // generates a random number between 0 and length-1.
                 cy.get(this.inputStateProvince + '> option').eq(randomNumber).then(($select) => {  // chooses the state/province randomly
@@ -36,8 +36,8 @@ export default class AddressBookPage {
                     cy.get(this.inputStateProvince).select(text)                                   // selects the option from the list
                 });
             })
-        cy.get(this.inputZipCode).type(this.randomZipCode)
-        cy.get(this.btnSaveAdress).click()
+        cy.get(this.inputZipCode).should('be.visible').type(this.randomZipCode)
+        cy.get(this.btnSaveAdress).should('be.visible').click()
     }
 
     adressBookPageAssertions() {
