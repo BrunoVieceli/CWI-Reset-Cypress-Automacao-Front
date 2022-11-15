@@ -2,9 +2,9 @@
 
 import { faker } from '@faker-js/faker'
 
-function getRandomInt(min, max) {      
-    return Math.floor(Math.random() * (max - min + 1)) + min;    
-} 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default class AddressBookPage {
     randomPhoneNumber = faker.phone.number('501-###-###')
@@ -29,7 +29,7 @@ export default class AddressBookPage {
         cy.get(this.inputStreet).should('be.visible').type(this.randomStreet)
         cy.get(this.inputCity).should('be.visible').type(this.randomCity)
         cy.get(this.inputCountry).should('be.visible').select(this.country)
-        cy.get(this.inputStateProvince + '> option').should('be.visible')                                               // code for selecting a random state/province
+        cy.get(this.inputStateProvince + '> option').should('be.visible')                          // code for selecting a random state/province
             .then(listing => {
                 const randomNumber = getRandomInt(0, listing.length - 1);                          // generates a random number between 0 and length-1.
                 cy.get(this.inputStateProvince + '> option').eq(randomNumber).then(($select) => {  // chooses the state/province randomly
@@ -42,7 +42,7 @@ export default class AddressBookPage {
     }
 
     adressBookPageAssertions() {
-        cy.get(this.titleAddressBook).should('have.text','Address Book')
+        cy.get(this.titleAddressBook).should('have.text', 'Address Book')
         cy.get(this.addressBlock).should('contain.text', this.randomPhoneNumber)
         cy.get(this.addressBlock).should('contain.text', this.randomStreet)
         cy.get(this.addressBlock).should('contain.text', this.randomCity)

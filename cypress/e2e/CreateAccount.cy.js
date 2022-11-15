@@ -15,7 +15,7 @@ describe('Magento Software Testing', () => {
     cy.visit('https://magento.softwaretestingboard.com/')
   })
 
-  it('Adicionar novo endereço à conta nova',() => {
+  it('Adicionar novo endereço à conta nova', () => {
     homePage.selectCreateAccount()
     createAccountPage.createAccount()
     myAccountPage.selectEditAddress()
